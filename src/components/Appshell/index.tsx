@@ -1,23 +1,23 @@
 import Navbar from "../navbar";
+import { useRouter } from "next/router";
 
-export default function AppShell({ children }: { children: React.ReactNode }) {
-  return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
-      <Navbar />
+const disableAuthPages = ["/auth/login", "/auth/register"];
 
-      <main style={{ flex: 1, padding: "20px" }}>
-        {children}
+type AppShellProps = {
+    children: React.ReactNode;
+};
+
+const AppShell = (props: AppShellProps) => {
+    const { children } = props;
+    const { pathname } = useRouter();
+    return (
+      <main>
+        <div>
+          {!disableAuthPages.includes(pathname) && <Navbar />}
+          {children}
+        </div>
       </main>
+    );
+};
 
-      <footer
-        style={{
-          padding: "15px",
-          textAlign: "center",
-          borderTop: "1px solid #ddd",
-        }}
-      >
-        <p>© 2026 My App. All rights reserved.</p>
-      </footer>
-    </div>
-  );
-}
+export default AppShell;
