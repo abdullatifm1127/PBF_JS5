@@ -7,16 +7,6 @@ const Produk = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
-
-//  useEffect(() => {
-//     const status = localStorage.getItem("isLogin");
-//     if (status !== "true") {
-//         router.push("/auth/login");
-//     } else {
-//         setIsLogin(true);
-//     }
-//     setIsLoading(false);
-// }, []);
     return (
     <div>
         <h1>HALAMAN PRODUK</h1>
