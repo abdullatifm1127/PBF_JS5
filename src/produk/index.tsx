@@ -1,23 +1,27 @@
 import { useRouter} from "next/router";
 import { useEffect, useState } from "react";
-import HeroSection from "@/views/produk/HeroSection";
-import MainSection from "@/views/produk/MainSection";
+import HeroSection from "./HeroSection";
+import MainSection from "./MainSection";
 
 const Produk = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const router = useRouter();
 
-    useEffect(() => {
-        const status = localStorage.getItem("isLogin");
-        if (status === "true") {
-            setIsLogin(true);
-        } else {
-            router.push("/auth/login");
-        }
-        setIsLoading(false);
-    }, [router]);
-    
+//  useEffect(() => {
+//     const status = localStorage.getItem("isLogin");
+//     if (status !== "true") {
+//         router.push("/auth/login");
+//     } else {
+//         setIsLogin(true);
+//     }
+//     setIsLoading(false);
+// }, []);
+    return (
+    <div>
+        <h1>HALAMAN PRODUK</h1>
+    </div>
+);
         if (isLoading) {
             return <div>Loading...</div>;
         }
